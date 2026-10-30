@@ -1,0 +1,30 @@
+# Лог kubectl get hpa scaletestapp -w --output-watch-events.
+#
+# TARGETS -- текущая утилизация памяти относительно requests (20Mi), цель -- 80%.
+# REPLICAS -- текущее количество реплик Deployment.
+#
+# Ход эксперимента:
+#   16m  утилизация 103% > 80%  ->  HPA увеличил количество реплик с 1 до 2
+#   17m-31m  Locust (500 пользователей, ~165 rps на GET /) держит нагрузку
+#   32m  нагрузка остановлена, поды перезапущены (rollout) для сброса памяти
+#   37m  утилизация 13% < 80%  ->  HPA уменьшил количество реплик с 2 до 1
+EVENT      NAME           REFERENCE                 TARGETS             MINPODS   MAXPODS   REPLICAS   AGE
+ADDED      scaletestapp   Deployment/scaletestapp   memory: 24%/80%     1         10        1          14m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 103%/80%    1         10        1          16m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 103%/80%    1         10        2          16m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 66%/80%     1         10        2          17m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 67%/80%     1         10        2          18m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 69%/80%     1         10        2          19m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 68%/80%     1         10        2          20m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 73%/80%     1         10        2          21m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 65%/80%     1         10        2          22m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 65%/80%     1         10        2          24m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 64%/80%     1         10        2          25m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 64%/80%     1         10        2          27m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 64%/80%     1         10        2          28m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 64%/80%     1         10        2          29m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 63%/80%     1         10        2          30m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 63%/80%     1         10        2          31m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 18%/80%     1         10        2          32m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 18%/80%     1         10        2          36m
+MODIFIED   scaletestapp   Deployment/scaletestapp   memory: 13%/80%     1         10        1          37m
