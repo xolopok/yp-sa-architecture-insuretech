@@ -1,0 +1,67 @@
+# GraphQL-схема сервиса client-info.
+#
+# Схема эквивалентна REST-контракту `/v1` (Swagger 2.0, «Клиентский Сервис» 1.0.0) и покрывает все его операции:
+#
+# - `GET /clients/{id}` -- запрос `client`;
+# - `GET /clients/{id}/documents` -- запрос `clientDocuments` или поле `Client.documents`;
+# - `GET /clients/{id}/relatives` -- запрос `clientRelatives` или поле `Client.relatives`.
+
+"Клиент -- основная сущность сервиса. Соответствует определению `Client` из REST-контракта."
+type Client {
+  "Идентификатор клиента."
+  id: ID!
+  "ФИО клиента."
+  name: String!
+  "Возраст клиента."
+  age: Int!
+  "Документы клиента. Покрывает `GET /clients/{id}/documents`."
+  documents: [Document!]!
+  "Родственники клиента. Покрывает `GET /clients/{id}/relatives`."
+  relatives: [Relative!]!
+}
+
+"Документ клиента. Соответствует определению `Document` из REST-контракта."
+type Document {
+  "Идентификатор документа."
+  id: ID!
+  "Тип документа."
+  type: String!
+  "Номер документа."
+  number: String!
+  "Дата выдачи документа (ISO 8601)."
+  issueDate: String!
+  "Дата окончания действия документа (ISO 8601)."
+  expiryDate: String!
+}
+
+"Родственник клиента. Соответствует определению `Relative` из REST-контракта."
+type Relative {
+  "Идентификатор родственника."
+  id: ID!
+  "Степень родства."
+  relationType: String!
+  "ФИО родственника."
+  name: String!
+  "Возраст родственника."
+  age: Int!
+}
+
+type Query {
+  """
+  Возвращает информацию о клиенте по идентификатору.
+  Покрывает `GET /clients/{id}`. Вложенные поля `documents` и `relatives` покрывают `GET /clients/{id}/documents` и `GET /clients/{id}/relatives`.
+  """
+  client(id: ID!): Client
+
+  """
+  Возвращает список документов клиента по идентификатору клиента.
+  Покрывает `GET /clients/{id}/documents`.
+  """
+  clientDocuments(id: ID!): [Document!]!
+
+  """
+  Возвращает список родственников клиента по идентификатору клиента.
+  Покрывает `GET /clients/{id}/relatives`.
+  """
+  clientRelatives(id: ID!): [Relative!]!
+}
