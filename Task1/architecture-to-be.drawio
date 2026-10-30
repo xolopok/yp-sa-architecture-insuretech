@@ -1,0 +1,277 @@
+<mxfile host="Electron">
+  <diagram id="fsIhCl2_XdEluK344ltA" name="TO-BE">
+    <mxGraphModel dx="2117" dy="1970" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="36Pr-fdVY9hO8cCz7-je-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3EBFF;strokeColor=none;perimeterSpacing=0;glass=0;verticalAlign=bottom;" value="Зона доступности ru-central1-a" vertex="1">
+          <mxGeometry height="640" width="580" x="40" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="jjahFWhAMGmnavCUIaYh-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3EBFF;strokeColor=none;perimeterSpacing=0;glass=0;verticalAlign=bottom;" value="Зона доступности ru-central1-d" vertex="1">
+          <mxGeometry height="640" width="580" x="660" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="BxDQe3LZmpmF3q-F94Xu-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#5282FF;perimeterSpacing=0;glass=0;verticalAlign=bottom;" value="Managed Kubernetes:&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;растянутый кластер, control plane (master) в 3х зонах (ru-central1-a/b/d);&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;namespaces: insure-tech для всех приложений;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;node groups: 2 узла в каждой зоне (2 vCPU / 8 GB);&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;маршрутизация: Ingress (L7) -&amp;gt; Service (L4), readiness probe = health check;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;группа безопасности: приложение&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="1120" x="80" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="_pBD3JIWxyCQo34_dHHA-1" parent="1" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIiBmaWxsPSJub25lIj4mI3hhOzxwYXRoIGQ9Ik0wIDE2QzAgNy4xNjM0NCA3LjE2MzQ0IDAgMTYgMFYwQzI0LjgzNjYgMCAzMiA3LjE2MzQ0IDMyIDE2VjE2QzMyIDI0LjgzNjYgMjQuODM2NiAzMiAxNiAzMlYzMkM3LjE2MzQ0IDMyIDAgMjQuODM2NiAwIDE2VjE2WiIgZmlsbD0iIzUyODJGRiIvPiYjeGE7PHBhdGggZD0iTTExLjk5NSAyNEw3LjAwMDk4IDE3LjczOEw4Ljc4MTk4IDkuOTI3TDE2IDYuNDUzTDIzLjIxOCA5LjkyOEwyNC45OTkgMTcuNzM5TDIwLjAwNSAyNEgxMS45OTVaTTIwIDEzLjE5NkwxNS45OTkgMTAuODk5TDEyIDEzLjE5NlYxOC4xTDE2IDIwLjQwMUwyMCAxOC4xVjEzLjE5NlpNMTguNzggMTMuODk2SDE4Ljc4N0wxNiAxNS40OTlMMTMuMjE0IDEzLjg5NUgxMy4yMTlMMTUuOTk5IDEyLjI5OUwxOC43OCAxMy44OTZaIiBmaWxsPSJ3aGl0ZSIvPiYjeGE7PC9zdmc+;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="60" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="CI3dqG0Qeou1D3Ybnvmt-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#5282FF;perimeterSpacing=0;glass=0;verticalAlign=bottom;" value="Managed PostgreSQL:&lt;div&gt;1 хост в каждой зоне (s3-c2-m8, 100 GB network-ssd);&lt;/div&gt;&lt;div&gt;подключение: rw-FQDN -- запись на master, ro-FQDN -- чтение с реплики;&lt;/div&gt;&lt;div&gt;группа безопасности: данные;&lt;/div&gt;&lt;div&gt;health check и авто-переключение master управляется слоем кластера (Patroni).&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="1120" x="80" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="CI3dqG0Qeou1D3Ybnvmt-2" parent="1" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIiBmaWxsPSJub25lIj4mI3hhOzxwYXRoIGQ9Ik0wIDE2QzAgNy4xNjM0NCA3LjE2MzQ0IDAgMTYgMFYwQzI0LjgzNjYgMCAzMiA3LjE2MzQ0IDMyIDE2VjE2QzMyIDI0LjgzNjYgMjQuODM2NiAzMiAxNiAzMlYzMkM3LjE2MzQ0IDMyIDAgMjQuODM2NiAwIDE2VjE2WiIgZmlsbD0iIzUyODJGRiIvPiYjeGE7PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMyA4SDE4QzIxLjMgOCAyNCAxMC43IDI0IDE0VjI0SDIwVjIwSDIyVjE5SDE4LjZDMTUuNSAxOSAxMyAxNi41IDEzIDEzLjRWOFpNMTkgMTdIMjFWMTVIMTlWMTdaTTEyIDkuMDk5OThWMTMuNEMxMiAxNi44IDE0LjYgMTkuNyAxOCAyMC4xVjIwLjZDMTggMjIgMTUuOCAyMy4xIDEzIDIzLjFDMTAuMiAyMy4xIDggMjIgOCAyMC42VjExLjZDOCAxMC4zIDkuNyA5LjI5OTk4IDEyIDkuMDk5OThaIiBmaWxsPSJ3aGl0ZSIvPiYjeGE7PC9zdmc+;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="60" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="a6UeqHxcp3ykZbWtg8U3-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF5958;perimeterSpacing=0;glass=0;" value="&lt;span style=&quot;white-space: nowrap;&quot;&gt;Основа&lt;/span&gt;" vertex="1">
+          <mxGeometry height="70" width="190" x="160" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="a6UeqHxcp3ykZbWtg8U3-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF5958;perimeterSpacing=0;glass=0;" value="&lt;span style=&quot;white-space: nowrap;&quot;&gt;Синхронная реплика&lt;/span&gt;" vertex="1">
+          <mxGeometry height="70" width="190" x="930" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="vPLXLgtbMjoVQtdZS6I1-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF5958;perimeterSpacing=0;glass=0;" value="node group 1: поды сервисов, по 2 реплики каждого" vertex="1">
+          <mxGeometry height="90" width="190" x="160" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="vPLXLgtbMjoVQtdZS6I1-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF5958;perimeterSpacing=0;glass=0;" value="node group 2: поды сервисов, по 2 реплики каждого" vertex="1">
+          <mxGeometry height="90" width="190" x="930" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="njvkqHrG-xmLyZYdBmf_-1" parent="1" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2032%2032%22%20height%3D%2232%22%20width%3D%2232%22%3E%26%23xa%3B%3Crect%20fill%3D%22%235282FF%22%20rx%3D%2216%22%20height%3D%2232%22%20width%3D%2232%22%2F%3E%26%23xa%3B%3Cpath%20fill%3D%22white%22%20d%3D%22M8%2020.002V11H10.15C11.175%2011%2011.907%2011.228%2012.343%2011.685C12.781%2012.143%2013%2012.907%2013%2013.978V16.498C13.004%2017.852%2012.812%2018.773%2012.425%2019.264C12.04%2019.754%2011.311%2020.001%2010.24%2020.001L8%2020.002ZM14%2020.002V11H16L17.692%2017.597V11H19V20.001H17L15.31%2013.339V20.001L14%2020.002ZM20.455%2019.415C20.152%2019.024%2020%2018.386%2020%2017.504V17.162H21.288V17.422C21.281%2017.844%2021.338%2018.16%2021.458%2018.37C21.576%2018.581%2021.758%2018.686%2022.001%2018.686C22.1073%2018.6917%2022.213%2018.6681%2022.3068%2018.6178C22.4006%2018.5676%2022.4789%2018.4926%2022.533%2018.401C22.651%2018.211%2022.708%2017.925%2022.708%2017.541C22.708%2017.256%2022.638%2017.011%2022.493%2016.803C22.352%2016.597%2022.104%2016.378%2021.748%2016.147C21.128%2015.746%2020.693%2015.353%2020.447%2014.963C20.199%2014.58%2020.075%2014.103%2020.075%2013.533C20.075%2012.687%2020.241%2012.053%2020.573%2011.632C20.907%2011.211%2021.407%2011%2022.075%2011C22.761%2011%2023.245%2011.196%2023.528%2011.588C23.795%2011.96%2023.924%2012.558%2023.921%2013.384L23.923%2013.576V13.836H22.635V13.576C22.641%2013.114%2022.599%2012.788%2022.508%2012.597C22.418%2012.408%2022.26%2012.313%2022.035%2012.313C21.9354%2012.3074%2021.8361%2012.3288%2021.7477%2012.3752C21.6593%2012.4215%2021.5851%2012.4909%2021.533%2012.576C21.421%2012.752%2021.367%2013.015%2021.367%2013.366C21.367%2013.638%2021.432%2013.871%2021.565%2014.066C21.693%2014.26%2021.923%2014.462%2022.252%2014.672C22.899%2015.094%2023.352%2015.505%2023.611%2015.905C23.871%2016.306%2024%2016.797%2024%2017.38C24%2018.254%2023.833%2018.91%2023.501%2019.345C23.168%2019.781%2022.668%2019.999%2022%2019.999C21.272%2019.999%2020.756%2019.804%2020.455%2019.415ZM11.1%2018.295C11.276%2018.058%2011.365%2017.602%2011.365%2016.926V13.954C11.365%2013.344%2011.267%2012.925%2011.068%2012.696C10.871%2012.466%2010.508%2012.352%209.98%2012.352H9.636V18.648H10.066C10.577%2018.648%2010.923%2018.53%2011.1%2018.296V18.295Z%22%2F%3E%26%23xa%3B%3C%2Fsvg%3E;shadow=0;dashed=0;strokeColor=none;strokeWidth=0" value="Cloud DNS: публичная DNS-зона" vertex="1">
+          <mxGeometry height="80" width="80" x="560" y="-240" as="geometry" />
+        </mxCell>
+        <mxCell id="njvkqHrG-xmLyZYdBmf_-2" parent="1" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22none%22%3E%26%23xa%3B%3Cpath%20d%3D%22M0%2016C0%207.16344%207.16344%200%2016%200C24.8366%200%2032%207.16344%2032%2016C32%2024.8366%2024.8366%2032%2016%2032C7.16344%2032%200%2024.8366%200%2016Z%22%20fill%3D%22%235282FF%22%2F%3E%26%23xa%3B%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M12.0099%2017H18.9919C18.8619%2021.068%2017.1819%2024.001%2015.5019%2024.001C13.8249%2024.001%2012.1389%2021.081%2012.0089%2017.001L12.0099%2017ZM8.01294%2017H11.0089C11.0909%2019.627%2011.8089%2022.081%2012.9629%2023.561C11.5902%2023.066%2010.3912%2022.1821%209.51227%2021.0172C8.63331%2019.8524%208.11235%2018.4569%208.01294%2017.001V17ZM19.9919%2017H22.9819C22.7819%2020.027%2020.7799%2022.561%2018.0399%2023.561C19.1929%2022.068%2019.9099%2019.601%2019.9919%2017.001V17ZM12.9619%209.43902C11.8069%2010.919%2011.0909%2013.386%2011.0089%2016H8.01294C8.11016%2014.5434%208.63028%2013.1468%209.50953%2011.9814C10.3888%2010.8159%2011.589%209.9324%2012.9629%209.43902H12.9619ZM15.4799%208.99902H15.5269C15.6679%208.99902%2015.8109%209.01202%2015.9519%209.06602C15.3283%209.91632%2014.9946%2010.9446%2014.9999%2011.999C14.9999%2013.626%2015.7849%2015.079%2016.9999%2016H12.0099C12.1389%2011.92%2013.8169%208.99902%2015.4799%208.99902ZM15.9999%2011.999C15.9999%209.78602%2017.7919%207.99902%2019.9999%207.99902C22.2079%207.99902%2023.9999%209.78602%2023.9999%2011.999C23.9999%2014.2%2022.2079%2016%2019.9999%2016C17.7919%2016%2015.9999%2014.2%2015.9999%2012V11.999ZM19.8529%2013.173L21.8529%2011.173C21.9467%2011.0793%2021.9993%2010.9521%2021.9993%2010.8195C21.9993%2010.6869%2021.9467%2010.5598%2021.8529%2010.466C21.807%2010.4186%2021.752%2010.3809%2021.6911%2010.3552C21.6303%2010.3294%2021.565%2010.3161%2021.4989%2010.3161C21.4329%2010.3161%2021.3675%2010.3294%2021.3067%2010.3552C21.2459%2010.3809%2021.1909%2010.4186%2021.1449%2010.466L19.4999%2012.106L18.8529%2011.466C18.807%2011.4186%2018.752%2011.3809%2018.6911%2011.3552C18.6303%2011.3294%2018.565%2011.3161%2018.4989%2011.3161C18.4329%2011.3161%2018.3675%2011.3294%2018.3067%2011.3552C18.2459%2011.3809%2018.1909%2011.4186%2018.1449%2011.466C18.0512%2011.5598%2017.9985%2011.6869%2017.9985%2011.8195C17.9985%2011.9521%2018.0512%2012.0793%2018.1449%2012.173L19.1449%2013.173C19.2408%2013.2631%2019.3674%2013.3132%2019.4989%2013.3132C19.6305%2013.3132%2019.7571%2013.2631%2019.8529%2013.173Z%22%20fill%3D%22white%22%2F%3E%26%23xa%3B%3C%2Fsvg%3E;shadow=0;dashed=0;strokeColor=none;strokeWidth=0" value="Cloud CDN:&#xa;статика с edge-узлов по всей РФ" vertex="1">
+          <mxGeometry height="80" width="80" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="njvkqHrG-xmLyZYdBmf_-3" parent="1" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2032%2032%22%20height%3D%2232%22%20width%3D%2232%22%3E%26%23xa%3B%3Crect%20fill%3D%22%235282FF%22%20rx%3D%2216%22%20height%3D%2232%22%20width%3D%2232%22%2F%3E%26%23xa%3B%3Cpath%20fill%3D%22white%22%20d%3D%22M9.41643%2011.1034L14.4885%208.38013C14.9532%208.1306%2015.4725%208%2016%208C16.5275%208%2017.0468%208.1306%2017.5115%208.38013L22.5836%2011.1034C23.1479%2011.4065%2023.5%2011.9951%2023.5%2012.6357V13.7528C23.5%2017.4508%2021.6216%2020.8957%2018.5129%2022.8986L17.4791%2023.5648C17.0381%2023.8489%2016.5246%2024%2016%2024C15.4754%2024%2014.9619%2023.8489%2014.5209%2023.5648L13.4871%2022.8986C10.3784%2020.8957%208.5%2017.4508%208.5%2013.7528V12.6357C8.5%2011.9951%208.85209%2011.4065%209.41643%2011.1034ZM11.7791%2016.25H13.5095C13.5502%2017.3172%2013.7207%2018.3071%2013.9964%2019.088C14.0586%2019.2643%2014.129%2019.4383%2014.209%2019.6053C12.9007%2018.9965%2011.9539%2017.7412%2011.7791%2016.25ZM17.4897%2016.25H14.5103C14.5976%2018.3616%2015.2313%2020%2016%2020C16.7687%2020%2017.4024%2018.3616%2017.4897%2016.25ZM14.5103%2015.25H17.4897C17.4024%2013.1384%2016.7687%2011.5%2016%2011.5C15.2313%2011.5%2014.5976%2013.1384%2014.5103%2015.25ZM18.0037%2019.088C18.2793%2018.3071%2018.4498%2017.3172%2018.4905%2016.25H20.2209C20.0461%2017.7412%2019.0994%2018.9965%2017.791%2019.6053C17.871%2019.4383%2017.9415%2019.2643%2018.0037%2019.088ZM20.25%2015.75L20.25%2015.7663V15.7337L20.25%2015.75ZM18.4905%2015.25H20.2209C20.0461%2013.7588%2019.0994%2012.5035%2017.791%2011.8947C17.871%2012.0617%2017.9415%2012.2357%2018.0037%2012.412C18.2793%2013.1929%2018.4498%2014.1828%2018.4905%2015.25ZM11.7791%2015.25H13.5095C13.5502%2014.1828%2013.7207%2013.1929%2013.9964%2012.412C14.0586%2012.2357%2014.129%2012.0617%2014.209%2011.8947C12.9007%2012.5035%2011.9539%2013.7588%2011.7791%2015.25Z%22%20clip-rule%3D%22evenodd%22%20fill-rule%3D%22evenodd%22%2F%3E%26%23xa%3B%3C%2Fsvg%3E;shadow=0;dashed=0;strokeColor=none;strokeWidth=0" value="Application Load Balancer:&#xa;L7, TLS, health check" vertex="1">
+          <mxGeometry height="80" width="80" x="600" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="njvkqHrG-xmLyZYdBmf_-4" parent="1" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22none%22%3E%26%23xa%3B%3Cpath%20d%3D%22M16%2032C24.8366%2032%2032%2024.8366%2032%2016C32%207.16344%2024.8366%200%2016%200C7.16344%200%200%207.16344%200%2016C0%2024.8366%207.16344%2032%2016%2032Z%22%20fill%3D%22%235282FF%22%2F%3E%26%23xa%3B%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M23.2461%2024V20.0557L21.8787%2021.1465L19.2229%2017.7559C19.5915%2017.2576%2019.8094%2016.641%2019.8094%2015.9736C19.8094%2015.8464%2019.8015%2015.7211%2019.7862%2015.5981L21.3818%2014.9791L22.0132%2016.6241L23.9995%2013.2305L20.2526%2012.0376L20.88%2013.6721L19.2917%2014.2883C18.7519%2013.4948%2017.8415%2012.9736%2016.8094%2012.9736C16.7678%2012.9736%2016.7264%2012.9744%2016.6852%2012.9761L15.937%2010.7082L17.6205%2010.1612L14.3354%208L12.9481%2011.6793L14.6055%2011.1408L15.3375%2013.3589C14.627%2013.7597%2014.0963%2014.4418%2013.8963%2015.2539L13.8966%2015.2528L11.8712%2015.2524C11.5874%2014.4941%2010.8562%2013.9543%209.9989%2013.9543C8.89521%2013.9543%208.00049%2014.849%208.00049%2015.9527C8.00049%2017.0564%208.89521%2017.9511%209.9989%2017.9511C10.8564%2017.9511%2011.5878%2017.411%2011.8714%2016.6524L13.8866%2016.6528C14.0407%2017.3189%2014.4166%2017.8997%2014.9323%2018.3139L14.9314%2018.3133L14.0292%2020.0811L12.4736%2019.2859L13.2631%2023.138L16.848%2021.5221L15.2758%2020.7184L16.198%2018.9113L16.197%2018.9111C16.3947%2018.9521%2016.5996%2018.9736%2016.8094%2018.9736C17.2916%2018.9736%2017.7472%2018.8598%2018.1509%2018.6577L20.7842%2022.0195L19.4055%2023.1193L23.2461%2024ZM16.8094%2014.3736C17.6931%2014.3736%2018.4094%2015.0899%2018.4094%2015.9736C18.4094%2016.8573%2017.6931%2017.5736%2016.8094%2017.5736C15.9258%2017.5736%2015.2094%2016.8573%2015.2094%2015.9736C15.2094%2015.0899%2015.9258%2014.3736%2016.8094%2014.3736Z%22%20fill%3D%22white%22%2F%3E%26%23xa%3B%3C%2Fsvg%3E;shadow=0;dashed=0;strokeColor=none;strokeWidth=0" value="Smart Web Security:&#xa;WAF, rate limit 20 RPS/партнёра" vertex="1">
+          <mxGeometry height="80" width="80" x="600" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Bl_mW1vKyijGcNlUsNPo-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF5958;perimeterSpacing=0;glass=0;" value="Браузер пользователя" vertex="1">
+          <mxGeometry height="80" width="200" x="180" y="-240" as="geometry" />
+        </mxCell>
+        <mxCell id="yuwbt_n5ij-2Fh30h_Ee-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF5958;perimeterSpacing=0;glass=0;" value="Системы партнёров" vertex="1">
+          <mxGeometry height="80" width="200" x="960" y="-240" as="geometry" />
+        </mxCell>
+        <mxCell id="yuwbt_n5ij-2Fh30h_Ee-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF5958;perimeterSpacing=0;glass=0;" value="Системы страховых компаний" vertex="1">
+          <mxGeometry height="80" width="200" x="1240" y="-240" as="geometry" />
+        </mxCell>
+        <mxCell id="pde4KwxVKGrZF8HOnwdE-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF5958;perimeterSpacing=0;glass=0;" value="Платёжный сервис" vertex="1">
+          <mxGeometry height="80" width="200" x="1560" y="-240" as="geometry" />
+        </mxCell>
+        <mxCell id="HqmvWjtcMqm8C7ps6WzB-1" parent="1" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22none%22%3E%26%23xa%3B%3Cpath%20d%3D%22M0%2016C0%207.16344%207.16344%200%2016%200V0C24.8366%200%2032%207.16344%2032%2016V16C32%2024.8366%2024.8366%2032%2016%2032V32C7.16344%2032%200%2024.8366%200%2016V16Z%22%20fill%3D%22%235282FF%22%2F%3E%26%23xa%3B%3Cpath%20d%3D%22M9%2010H8V22H24V20H9V10ZM20.5%2015.5L17%2012L13.5%2015.5L10%2012V19H24V12L20.5%2015.5Z%22%20fill%3D%22white%22%2F%3E%26%23xa%3B%3C%2Fsvg%3E;shadow=0;dashed=0;strokeColor=none;strokeWidth=0" value="Monium: SLO-алертинг 99,9%" vertex="1">
+          <mxGeometry height="80" width="80" x="1600" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="HqmvWjtcMqm8C7ps6WzB-2" parent="1" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22none%22%3E%26%23xa%3B%3Cpath%20d%3D%22M0%2016C0%207.16344%207.16344%200%2016%200V0C24.8366%200%2032%207.16344%2032%2016V16C32%2024.8366%2024.8366%2032%2016%2032V32C7.16344%2032%200%2024.8366%200%2016V16Z%22%20fill%3D%22%235282FF%22%2F%3E%26%23xa%3B%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M22%208C22%207.4%2021.6%207%2021%207H11C10.4%207%2010%207.4%2010%208V10H22V8ZM23%2012C23%2011.4%2022.6%2011%2022%2011H10C9.4%2011%209%2011.4%209%2012V14H23V12ZM9%2015H23C23.5%2015%2024%2015.4%2024%2016V22C24%2022.6%2023.6%2023%2023%2023H9C8.4%2023%208%2022.6%208%2022V16C8%2015.4%208.4%2015%209%2015ZM14%2020H18C18.5%2020%2019%2019.5%2019%2019C19%2018.4%2018.6%2018%2018%2018H14C13.4%2018%2013%2018.4%2013%2019C13%2019.6%2013.4%2020%2014%2020Z%22%20fill%3D%22white%22%2F%3E%26%23xa%3B%3C%2Fsvg%3E;shadow=0;dashed=0;strokeColor=none;strokeWidth=0" value="Object Storage: резервные копии БД + WAL (PITR)" vertex="1">
+          <mxGeometry height="80" width="80" x="560" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="HqmvWjtcMqm8C7ps6WzB-3" parent="1" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2032%2032%22%20height%3D%2232%22%20width%3D%2232%22%3E%26%23xa%3B%3Crect%20fill%3D%22%235282FF%22%20transform%3D%22rotate%28-90%200%2032%29%22%20rx%3D%2216%22%20height%3D%2232%22%20width%3D%2232%22%20y%3D%2232%22%2F%3E%26%23xa%3B%3Cpath%20fill%3D%22white%22%20d%3D%22M16%2024C20.4183%2024%2024%2020.4183%2024%2016C24%2011.5817%2020.4183%208%2016%208C11.5817%208%208%2011.5817%208%2016C8%2020.4183%2011.5817%2024%2016%2024ZM12.7493%2016.0016C12.7489%2017.4492%2013.7238%2018.7693%2015.1893%2019.1469C16.9274%2019.5948%2018.6996%2018.5489%2019.1475%2016.8107C19.5954%2015.0726%2018.5494%2013.3005%2016.8113%2012.8526C16.2077%2012.697%2015.6011%2012.7213%2015.0466%2012.8922L16.0002%2014.5L12.0009%2013.9947L13.4751%2010.2428L14.2665%2011.5772C15.1649%2011.2243%2016.1798%2011.1408%2017.1856%2011.4C19.726%2012.0546%2021.2546%2014.6447%2020.6%2017.185C19.9454%2019.7254%2017.3554%2021.2541%2014.815%2020.5995C12.6707%2020.0469%2011.2487%2018.1165%2011.2493%2016.0012L12.7493%2016.0016Z%22%20clip-rule%3D%22evenodd%22%20fill-rule%3D%22evenodd%22%2F%3E%26%23xa%3B%3C%2Fsvg%3E;shadow=0;dashed=0;strokeColor=none;strokeWidth=0" value="Cloud Backup: снапшоты узлов кластера" vertex="1">
+          <mxGeometry height="80" width="80" x="1360" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="arw-hc-alb1" edge="1" parent="1" source="njvkqHrG-xmLyZYdBmf_-3" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;fillColor=#008a00;strokeColor=#005700;" target="vPLXLgtbMjoVQtdZS6I1-1" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="302.5" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-hc-alb1-lbl" connectable="0" parent="arw-hc-alb1" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Проверяет состояние бэкендов, цель без ответа выводится из ротации&lt;div&gt;[HTTP GET /health]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="76" y="-40" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-hc-alb2" edge="1" parent="1" source="njvkqHrG-xmLyZYdBmf_-3" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;fillColor=#008a00;strokeColor=#005700;" target="vPLXLgtbMjoVQtdZS6I1-2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="977.5" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-hc-alb2-lbl" connectable="0" parent="arw-hc-alb2" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Проверяет состояние бэкендов, цель без ответа выводится из ротации&lt;div&gt;[HTTP GET /health]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-76" y="-40" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-dns" edge="1" parent="1" source="Bl_mW1vKyijGcNlUsNPo-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;" target="njvkqHrG-xmLyZYdBmf_-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arw-dns-lbl" connectable="0" parent="arw-dns" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Разрешает доменное имя&lt;div&gt;[DNS]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-cdn" edge="1" parent="1" source="Bl_mW1vKyijGcNlUsNPo-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;" target="njvkqHrG-xmLyZYdBmf_-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arw-cdn-lbl" connectable="0" parent="arw-cdn" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Запрашивает страницы (статику и динамику)&lt;div&gt;[HTTPS]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-cdn-sws" edge="1" parent="1" source="njvkqHrG-xmLyZYdBmf_-2" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;" target="njvkqHrG-xmLyZYdBmf_-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arw-cdn-sws-lbl" connectable="0" parent="arw-cdn-sws" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Запрашивает динамику при промахе кеша&lt;div&gt;[HTTPS]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-partner-sws" edge="1" parent="1" source="yuwbt_n5ij-2Fh30h_Ee-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;" target="njvkqHrG-xmLyZYdBmf_-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1060" y="80" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-partner-sws-lbl" connectable="0" parent="arw-partner-sws" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="&lt;div&gt;Вызывают партнёрский API&lt;/div&gt;&lt;div&gt;[HTTPS]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="-120" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-sws-alb" edge="1" parent="1" source="njvkqHrG-xmLyZYdBmf_-4" style="endArrow=open;html=1;rounded=1;endFill=0;curved=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;" target="njvkqHrG-xmLyZYdBmf_-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arw-sws-alb-lbl" connectable="0" parent="arw-sws-alb" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Проксирует запросы [HTTPS]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-alb-ng1" edge="1" parent="1" source="njvkqHrG-xmLyZYdBmf_-3" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;libavoidRouting=1;" target="vPLXLgtbMjoVQtdZS6I1-1" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="638" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-alb-ng1-lbl" connectable="0" parent="arw-alb-ng1" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;textShadow=0;" value="Распределяет трафик на бэкенды&lt;div&gt;[HTTPS]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-133" y="-37" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-alb-ng2" edge="1" parent="1" source="njvkqHrG-xmLyZYdBmf_-3" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;libavoidRouting=1;" target="vPLXLgtbMjoVQtdZS6I1-2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="638" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-alb-ng2-lbl" connectable="0" parent="arw-alb-ng2" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Распределяет трафик на бэкенды&lt;div&gt;[HTTPS]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="134" y="-37" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-ins-ng" edge="1" parent="1" source="BxDQe3LZmpmF3q-F94Xu-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="yuwbt_n5ij-2Fh30h_Ee-2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1340.06" y="610" />
+            </Array>
+            <mxPoint x="1320" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-ins-ng-lbl" connectable="0" parent="arw-ins-ng" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Запрашивает данные о продуктах и предложения по ОСАГО&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;[HTTPS]&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-135" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-ng-pay" edge="1" parent="1" source="BxDQe3LZmpmF3q-F94Xu-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" target="pde4KwxVKGrZF8HOnwdE-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arw-ng-pay-lbl" connectable="0" parent="arw-ng-pay" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Совершает платежи по оформленным страховкам&lt;div&gt;[HTTPS]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-295" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-ng1-db" edge="1" parent="1" source="vPLXLgtbMjoVQtdZS6I1-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="a6UeqHxcp3ykZbWtg8U3-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arw-ng1-db-lbl" connectable="0" parent="arw-ng1-db" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Читает и пишет данные&lt;div&gt;[PostgreSQL, TCP 5432]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-ng2-db" edge="1" parent="1" source="vPLXLgtbMjoVQtdZS6I1-2" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;" target="a6UeqHxcp3ykZbWtg8U3-1" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1025" y="833" />
+              <mxPoint x="303" y="833" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-ng2-db-lbl" connectable="0" parent="arw-ng2-db" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Читает и пишет данные&lt;div&gt;[PostgreSQL, TCP 5432]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-db-bak" edge="1" parent="1" source="a6UeqHxcp3ykZbWtg8U3-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="HqmvWjtcMqm8C7ps6WzB-2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="208" y="1280" />
+            </Array>
+            <mxPoint x="-20" y="1060" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-db-bak-lbl" connectable="0" parent="arw-db-bak" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;textShadow=0;" value="Отправляет резервные копии и WAL&lt;div&gt;[HTTPS (S3)]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="102" y="-40" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-k8s-snap" edge="1" parent="1" source="BxDQe3LZmpmF3q-F94Xu-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;" target="HqmvWjtcMqm8C7ps6WzB-3" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1400" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-k8s-snap-lbl" connectable="0" parent="arw-k8s-snap" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Отправляет снапшоты узлов [HTTPS]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="60" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-k8s-mon" edge="1" parent="1" source="BxDQe3LZmpmF3q-F94Xu-1" style="endArrow=open;html=1;rounded=1;endFill=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;libavoidRouting=1;" target="HqmvWjtcMqm8C7ps6WzB-1" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1640" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arw-k8s-mon-lbl" connectable="0" parent="arw-k8s-mon" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Экспортирует метрики [OTLP]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="60" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S4W71rQbanAjPYtbq6-m-1" parent="1" style="text;html=1;fontSize=20;fontStyle=1" value="&lt;h1&gt;InsureTech. Технологическая архитектура (TO-BE)&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="160" width="2240" x="-480" y="-480" as="geometry" />
+        </mxCell>
+        <mxCell id="SDZv58lTtOogie2ISRKt-2" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#e3c800;strokeColor=#B09500;align=left;verticalAlign=top;spacing=16;" value="&lt;h3&gt;Текущее состояние и ограничения&lt;/h3&gt;&lt;div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;RTO -- 45 минут&lt;/li&gt;&lt;li&gt;RPO -- 15 минут&lt;/li&gt;&lt;li&gt;SLA -- 99,9% (простой &amp;lt;= 43,8 мин/мес)&lt;/li&gt;&lt;li&gt;Объём данных -- 50 GB&lt;/li&gt;&lt;li&gt;Поиск -- 50 RPS; оформление -- 10 RPS&lt;/li&gt;&lt;li&gt;Партнёрский API -- 20 RPS на партнёра&lt;/li&gt;&lt;li&gt;Одинаковое время загрузки страниц во всех часовых поясах РФ&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="320" x="-480" y="-320" as="geometry" />
+        </mxCell>
+        <mxCell id="SDZv58lTtOogie2ISRKt-3" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#e3c800;strokeColor=#B09500;align=left;verticalAlign=top;spacing=16;" value="&lt;h3&gt;Зоны безопасности&lt;/h3&gt;&lt;div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;DMZ (DNS, CDN, WAF, ALB) -- вход из интернета;&lt;/span&gt;&lt;/li&gt;&lt;li&gt;подсеть приложения (Managed Kubernetes);&lt;/li&gt;&lt;li&gt;подсеть данных (Managed PostgreSQL).&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;div&gt;Группы безопасности: наружу из подсети приложения разрешён только TCP 443 к внешним провайдерам и TCP 5432 к подсети данных; из подсети данных исходящего нет. Весь входящий трафик идёт через DMZ.&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="320" x="-480" as="geometry" />
+        </mxCell>
+        <mxCell id="lIR8S6MP70Qh4P_4Gw3y-1" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#e3c800;strokeColor=#B09500;align=left;verticalAlign=top;spacing=16;" value="&lt;h3&gt;Только горизонтальное масштабирование&lt;/h3&gt;&lt;div&gt;Сервисы stateless: масштабируются репликами в Kubernetes. БД масштабируется репликацией, чтение -- через ro-FQDN.&lt;/div&gt;&lt;div&gt;Вертикальное масштабирование не имеет смысла: не решает отказоустойчивость.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="320" x="-480" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="i1hm4rxD4VLPAT5IgRbW-2" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#e3c800;strokeColor=#B09500;align=left;verticalAlign=top;spacing=16;" value="&lt;h3&gt;Active-Active failover по зонам&lt;/h3&gt;&lt;div&gt;ALB держит трафик в обеих зонах. Цель, не отвечающая на health check, исключается из ротации. Каждая зона рассчитана на полную нагрузку (N+1).&lt;/div&gt;&lt;div&gt;CDN отдаёт статику из кеша edge-узлов при недоступности origin.&lt;/div&gt;&lt;div&gt;Переключение master PostgreSQL автоматическое.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="320" x="-480" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="670xDmJ229RSWLrgByKu-2" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#e3c800;strokeColor=#B09500;align=left;verticalAlign=top;spacing=16;" value="&lt;h3&gt;Растянутый кластер Kubernetes&lt;/h3&gt;&lt;div&gt;Поды автоматически пересоздаются на выживших узлах при отказе зоны; каждая зона рассчитана на полную нагрузку (N+1); ниже затраты на эксплуатацию одного control plane.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="320" x="-480" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="670xDmJ229RSWLrgByKu-4" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#e3c800;strokeColor=#B09500;align=left;verticalAlign=top;spacing=16;" value="&lt;h3&gt;Шардирование не применяется&lt;/h3&gt;Объём 50 GB и профиль нагрузки покрываются кластером PG с репликой." vertex="1">
+          <mxGeometry height="280" width="320" x="-480" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="VD8nwodvP3ANU0PYYQPJ-2" edge="1" parent="1" source="a6UeqHxcp3ykZbWtg8U3-1" style="endArrow=open;html=1;rounded=1;endFill=0;curved=0;endSize=6;targetPerimeterSpacing=0;flowAnimation=0;strokeWidth=1;" target="a6UeqHxcp3ykZbWtg8U3-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="250" y="280" as="sourcePoint" />
+            <mxPoint x="470" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VD8nwodvP3ANU0PYYQPJ-3" connectable="0" parent="VD8nwodvP3ANU0PYYQPJ-2" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelBackgroundColor=none;" value="Реплицирует данные:&lt;div&gt;[PostgreSQL streaming replication (WAL), TCP 5432]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0217" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
